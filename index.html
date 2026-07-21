@@ -1,0 +1,516 @@
+<title>Queue TikTok — Torool &amp; juliapp</title>
+<style>
+  :root{--bg:#15161B;--surface:#1c1d24;--surface2:#101116;--line:rgba(250,248,244,.10);--line2:rgba(250,248,244,.18);
+    --ink:#faf8f4;--ink2:#c9c5bc;--ink3:#8a867d;--torool:#E8519A;--julia:#D4A574;--warn:#e0983a;
+    --mono:ui-monospace,"SF Mono",Consolas,monospace;}
+  @media(prefers-color-scheme:light){:root{--bg:#faf8f4;--surface:#fff;--surface2:#f1efe9;--line:rgba(26,26,26,.10);
+    --line2:rgba(26,26,26,.16);--ink:#1a1a1a;--ink2:#55524a;--ink3:#8a867d;--torool:#D4276E;--julia:#A5760A;--warn:#b06a12;}}
+  :root[data-theme=light]{--bg:#faf8f4;--surface:#fff;--surface2:#f1efe9;--line:rgba(26,26,26,.10);
+    --line2:rgba(26,26,26,.16);--ink:#1a1a1a;--ink2:#55524a;--ink3:#8a867d;--torool:#D4276E;--julia:#A5760A;--warn:#b06a12;}
+  :root[data-theme=dark]{--bg:#15161B;--surface:#1c1d24;--surface2:#101116;--line:rgba(250,248,244,.10);
+    --line2:rgba(250,248,244,.18);--ink:#faf8f4;--ink2:#c9c5bc;--ink3:#8a867d;--torool:#E8519A;--julia:#D4A574;--warn:#e0983a;}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);margin:0;padding:32px 18px 90px;
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0 0 6px}
+  .sub{color:var(--ink2);font-size:14px;margin:0 0 4px;max-width:70ch}
+  .banner{border:1px solid var(--warn);background:color-mix(in srgb,var(--warn) 12%,transparent);
+    border-radius:10px;padding:14px 18px;margin:18px 0;font-size:13.5px;color:var(--ink2)}
+  .banner b{color:var(--ink)}
+  .stats{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}
+  .stat{font-family:var(--mono);font-size:12px;background:var(--surface);border:1px solid var(--line);
+    border-radius:100px;padding:5px 13px;color:var(--ink2)}
+  .stat b{color:var(--ink)}
+  section{margin-top:34px}
+  h2{font-size:18px;font-weight:800;margin:0 0 4px;border-bottom:1px solid var(--line2);padding-bottom:9px}
+  h3{font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);
+    margin:24px 0 10px;font-family:var(--mono)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:13px}
+  .card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:15px 17px;display:flex;flex-direction:column;gap:9px;transition:opacity .15s}
+  .card.done{opacity:.35}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:9px}
+  .card-title{font-weight:700;font-size:14px;line-height:1.3}
+  .score{font-family:var(--mono);font-size:11.5px;color:var(--accent);flex-shrink:0}
+  .dl{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);
+    text-decoration:none;border:1px solid var(--accent);border-radius:7px;padding:6px 12px;width:fit-content}
+  .caption{font-size:13px;color:var(--ink2);white-space:pre-line;background:var(--surface2);
+    border-radius:7px;padding:10px 12px;border:1px solid var(--line)}
+  .tags{font-family:var(--mono);font-size:12px;color:var(--accent);opacity:.85}
+  .card-foot{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink3);cursor:pointer;user-select:none}
+  .card-foot input{accent-color:var(--accent);width:14px;height:14px}
+  .torool{--accent:var(--torool)} .julia{--accent:var(--julia)}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);
+    font-size:12px;font-family:var(--mono)}
+</style>
+
+
+<div class="wrap">
+  <h1>Queue TikTok — Torool &amp; juliapp</h1>
+  <p class="sub">50 vidéos scellées, toutes en MONO-CLIP : une prise continue, un seul visage, zéro coupe. Chacune utilise un clip que personne d'autre n'utilise.</p>
+
+  <div class="stats">
+    <span class="stat"><b>50</b> vidéos</span>
+    <span class="stat"><b>23</b> Torool</span>
+    <span class="stat"><b>27</b> juliapp</span>
+    <span class="stat"><b>0 $</b> déjà payé</span>
+  </div>
+
+  <div class="banner">
+    <b>Avant de poster :</b> ajoute un son tendance <b>DANS l'app TikTok</b>. Un fichier importé brut affiche « son original » — c'est le marqueur que TikTok pénalise au For You feed.<br><br>
+    <b>Rotation :</b> ne poste pas deux mono-clips d'affilée sans intercaler autre chose. Les 50 partagent le même langage visuel — c'est la règle de rotation que tu as posée le 14/07.<br><br>
+    <b>Hashtags :</b> non vérifiés. Tape-les dans la recherche TikTok, le nombre de posts s'affiche — sous 1 000, remplace. Instagram plafonne à 5 (au-delà, ignorés sans erreur).
+  </div>
+
+  <div class="banner">
+    <b>iPhone :</b> appui <b>long</b> sur « Télécharger » → « Télécharger le fichier lié » → app <b>Fichiers</b> → Téléchargements → appui long → Partager → <b>Enregistrer la vidéo</b> → Photos.<br>
+    Réglage une fois : Réglages → TikTok → Photos → <b>Toutes les photos</b>.
+  </div>
+
+  <section>
+    <h2>Torool <span style="font-family:var(--mono);font-size:12px;color:var(--ink3);font-weight:400">— EN · l'organisateur crédité</span></h2>
+    <h3>⭐ Travail invisible — b-roll neuf (21/07)</h3>
+    <p class="sub" style="margin:0 0 14px;">L'image montre ce que personne ne voit — la salle vide, le montage, la solitude. Le texte le nomme et te crédite. C'est la moitié qui manquait : les 33 clips précédents ne montraient que le moment réussi.</p>
+    <div class="grid">
+      <div class="card torool"><div class="card-top"><span class="card-title">You checked the back row.</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo17.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You checked the back row.
+
+Twice.
+
+torool.com</div>
+        <div class="tags">#eventprofs #eventplanning #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You hung every one.</span><span class="score">8.8</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo14.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You hung every one.
+
+They thought it came with the venue.
+
+torool.com</div>
+        <div class="tags">#partyplanning #hosting #gardenparty</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">These did not hang themselves.</span><span class="score">8.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-story3.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">These did not hang themselves.</div>
+        <div class="tags">#partyplanning #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You were here at eight.</span><span class="score">8.5</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo18.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You were here at eight.
+
+They walked in at noon.
+
+torool.com</div>
+        <div class="tags">#eventplanning #hosting #venue</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Nobody else saw this part.</span><span class="score">8.3</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo20.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Two hours before anyone came.
+
+Nobody else saw this part.
+
+torool.com</div>
+        <div class="tags">#eventprofs #eventplanning #conference</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You carried every chair.</span><span class="score">8.2</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo15.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You carried every chair.
+
+They just sat down.
+
+torool.com</div>
+        <div class="tags">#eventplanning #hosting #eventprofs</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Empty. Ten more minutes.</span><span class="score">8.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo13.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Empty. Ten more minutes.
+
+Then it was full.
+
+torool.com</div>
+        <div class="tags">#eventprofs #hosting #eventplanning</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You got there first.</span><span class="score">8.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo19.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You got there first.
+
+Nobody else ever knew that.
+
+torool.com</div>
+        <div class="tags">#partyplanning #hosting #picnic</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You tested it three times.</span><span class="score">7.4</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-solo16.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You tested it three times.
+
+It worked, and that was the point.
+
+torool.com</div>
+        <div class="tags">#eventprofs #conference #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Somebody carried every one.</span><span class="score">7.2</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-story2.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Somebody carried every one of these.</div>
+        <div class="tags">#eventplanning #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Ten minutes before.</span><span class="score">7.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.53/torool-story1.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Ten minutes before anyone arrived.</div>
+        <div class="tags">#eventprofs #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+    </div>
+
+    <h3>Premier lot</h3>
+    <div class="grid">
+      <div class="card torool"><div class="card-top"><span class="card-title">Look at them.</span><span class="score">8.9</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo5.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Look at them.
+
+You did this.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You worried about the weather.</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo12.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You worried about the weather.
+
+They stayed until dark.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Every name placed.</span><span class="score">8.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo6.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Every name placed.
+
+Nobody moved.
+
+torool.com</div>
+        <div class="tags">#wedding #seatingchart #rsvp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">They already asked.</span><span class="score">8.5</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo9.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">They already asked.
+
+About the next one.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Nobody remembers the emails.</span><span class="score">8.2</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo2.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Nobody remembers the emails.
+
+Everybody remembers this.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Forty seats.</span><span class="score">8.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo1.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Forty seats.
+
+Forty names on the list.
+
+torool.com — free, no app or account for your guests.</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">This started with one message.</span><span class="score">8.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo3.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">This started with one message.
+
+Yours.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">The whole team came.</span><span class="score">8.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">The whole team came.
+
+On a Friday.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">Nobody left early.</span><span class="score">8.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo7.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Nobody left early.
+
+That never happens.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You made this happen.</span><span class="score">7.8</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo10.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You made this happen.
+
+Again.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">All of them came.</span><span class="score">7.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo8.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">All of them came.
+
+Every single one.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card torool"><div class="card-top"><span class="card-title">You locked up at midnight.</span><span class="score">7.5</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.52/torool-solo11.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">You locked up at midnight.
+
+They were still talking.
+
+torool.com</div>
+        <div class="tags">#eventplanning #rsvp #hosting</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>juliapp <span style="font-family:var(--mono);font-size:12px;color:var(--ink3);font-weight:400">— FR · le travail invisible</span></h2>
+
+    <h3>Mono-clip</h3>
+    <div class="grid">
+      <div class="card julia"><div class="card-top"><span class="card-title">Ce n&#x27;est pas de la peur.</span><span class="score">9.2</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo5.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">« T&#x27;es un peu parano non ? »
+
+Non. J&#x27;ai juste prévenu quelqu&#x27;un. Comme je préviens quand je pars en voiture.</div>
+        <div class="tags">#rentrerseule #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Je vais pas dormir.</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo14.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Je vais pas dormir avant qu&#x27;elle soit rentrée.
+
+Elle le sait pas.</div>
+        <div class="tags">#sororite #entreamies #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Le trajet du soir.</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo1.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Envoie ton trajet à quelqu&#x27;un ce soir. Au bout de quelques fois, tu le fais sans y penser. juliapp, lien en bio.</div>
+        <div class="tags">#rentrerseule #walkwithme #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Le geste important.</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo3.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Le geste important, c&#x27;est pas de partager son trajet. C&#x27;est de ranger son téléphone juste après.</div>
+        <div class="tags">#metro #trajetdusoir #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">On a mis dix minutes.</span><span class="score">8.9</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo18.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">On a mis dix minutes à choisir la table.
+
+Celle d&#x27;où on voit la rue.</div>
+        <div class="tags">#entreamies #femmesenville #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">On se raccompagne toujours.</span><span class="score">8.8</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo12.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">On se raccompagne toujours.
+
+Alors qu&#x27;on habite dans deux directions opposées.</div>
+        <div class="tags">#entreamies #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Tu rallonges de trois minutes ?</span><span class="score">8.8</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo6.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Tu rallonges de trois minutes pour rester dans les rues éclairées ? Moi aussi.</div>
+        <div class="tags">#trajetdusoir #femmesenville #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Le chien.</span><span class="score">8.7</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo19.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Le chien, c&#x27;est pas pour la compagnie.
+
+Enfin, pas que.</div>
+        <div class="tags">#rentrerseule #juliapp #entrefilles</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Seule, pas sans personne.</span><span class="score">8.7</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo8.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Rentrer seule, ça n&#x27;a jamais voulu dire être seule.</div>
+        <div class="tags">#rentrerseule #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Ma coloc.</span><span class="score">8.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo13.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Ma coloc m&#x27;envoie sa position sans que je demande.
+
+Je fais pareil.</div>
+        <div class="tags">#entreamies #walkwithme #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Ma grand-mère.</span><span class="score">8.5</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo21.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Ma grand-mère faisait déjà ça.
+
+Elle appelait ça « être prudente ».</div>
+        <div class="tags">#sororite #juliapp #femmesenville</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Walk With Me.</span><span class="score">8.5</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo7.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Walk With Me : tu lances, ton cercle voit ton trajet en direct. Tu arrives, tu appuies, c&#x27;est fini. Lien en bio.</div>
+        <div class="tags">#walkwithme #juliapp #partagedetrajet</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Tague la deuxième.</span><span class="score">8.5</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Il y a celle qui demande « bien rentrée ? » à 1h du matin. Et il y a celle qui regarde le point avancer sans rien demander. Tague la deuxième.</div>
+        <div class="tags">#entreamies #sororite #bienrentree</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Le coup d&#x27;œil.</span><span class="score">8.4</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.50/juliapp-solo2.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Ce petit coup d&#x27;œil derrière l&#x27;épaule. On le fait toutes, on n&#x27;en parle jamais.
+
+Deux secondes pour que quelqu&#x27;un sache où tu es, c&#x27;est tout ce que ça demande.</div>
+        <div class="tags">#rentrerseule #juliapp #femmesenville</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Envoie quand tu montes.</span><span class="score">8.3</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo25.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">« Envoie quand tu montes. »
+
+« Envoie quand tu descends. »</div>
+        <div class="tags">#entreamies #trajetdusoir #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">La main libre.</span><span class="score">8.2</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo11.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Je change de main pour tenir mon téléphone.
+
+Pour garder la droite libre.</div>
+        <div class="tags">#rentrerseule #trajetdusoir #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">J'ai pas souri.</span><span class="score">8.4</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo15.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">On m'a dit de sourire un peu.
+
+J'ai pas souri.</div>
+        <div class="tags">#femmesenville #juliapp #sororite</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Au revoir deux fois.</span><span class="score">8.1</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo20.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">On se dit au revoir deux fois.
+
+Une pour de vrai, une sur le palier.</div>
+        <div class="tags">#entreamies #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Le groupe « rentrées ? ».</span><span class="score">7.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo10.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">On a un groupe qui s&#x27;appelle « rentrées ? ».
+
+Personne n&#x27;y écrit jamais rien d&#x27;autre.</div>
+        <div class="tags">#entreamies #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Bien rentrée ?</span><span class="score">7.4</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo9.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">« T&#x27;es bien rentrée ? »
+
+Je réponds avant même d&#x27;avoir ouvert.</div>
+        <div class="tags">#rentrerseule #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">On s&#x27;appelle pour rien.</span><span class="score">7.2</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.51/juliapp-solo26.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">On s&#x27;appelle pour rien.
+
+C&#x27;est ça le truc.</div>
+        <div class="tags">#entreamies #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+    </div>
+
+    <h3>Pilier vigilance</h3>
+    <div class="grid">
+      <div class="card julia"><div class="card-top"><span class="card-title">Vigilance E</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.49/juliapp-vigilance-e-v4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Avant la rue sombre, un geste. Deux secondes, pas plus.</div>
+        <div class="tags">#rentrerseule #walkwithme #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Vigilance B</span><span class="score">9.0</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.49/juliapp-vigilance-b-v4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Le quai est vide. Elle prend le wagon suivant, celui où il y a du monde.</div>
+        <div class="tags">#metro #rentrerseule #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Split Lifeline</span><span class="score">8.7</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.49/juliapp-split-lifeline-v4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Elle rentre. Son amie suit le trajet, rassurée, sans un mot.</div>
+        <div class="tags">#walkwithme #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Vigilance C</span><span class="score">8.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.49/juliapp-vigilance-c-v4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Trois minutes de plus par la rue éclairée. Personne ne lui a rien demandé.</div>
+        <div class="tags">#trajetdusoir #femmesenville #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Vigilance D</span><span class="score">8.6</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.49/juliapp-vigilance-d-v4.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Un peu de monde au coin de la rue. Elle ajuste sa route, sans un mot.</div>
+        <div class="tags">#rentrerseule #trajetdusoir #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+
+      <div class="card julia"><div class="card-top"><span class="card-title">Vigilance A</span><span class="score">7.9</span></div>
+        <a class="dl" href="https://github.com/Mbaldek/ce-media-smoke/releases/download/v0.46/juliapp-vigilance-a-v3.mp4" target="_blank" rel="noopener">⬇ Télécharger</a>
+        <div class="caption">Un pas un peu trop proche. Elle change de trottoir, sans ralentir.</div>
+        <div class="tags">#rentrerseule #sororite #juliapp</div>
+        <label class="card-foot"><input type="checkbox" onchange="toggleDone(this)"> Posté</label></div>
+    </div>
+  </section>
+
+  <footer>
+    Textes refaits le 20/07 après rejet du registre descriptif. Torool : 4 rejets du juge corrigés (promesse de présence, claim hors périmètre, doublon de contenu). juliapp : 6 rejets sur 18. Bug d'accent corrigé sur les 5 composants — la couleur de signature ne s'affichait pas sur les textes d'une seule ligne.
+  </footer>
+</div>
+
+<script>
+  function toggleDone(el){
+    var c = el.closest('.card');
+    c.classList.toggle('done', el.checked);
+    localStorage.setItem('tkq3_' + c.querySelector('.card-title').textContent, el.checked ? '1' : '0');
+  }
+  document.querySelectorAll('.card').forEach(function(c){
+    var k = 'tkq3_' + c.querySelector('.card-title').textContent;
+    if (localStorage.getItem(k) === '1') { c.classList.add('done'); c.querySelector('input').checked = true; }
+  });
+</script>
