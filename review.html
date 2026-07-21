@@ -4,65 +4,102 @@
   --ink3:#8a867d;--torool:#E8519A;--julia:#D4A574;--bad:#E2685A;--mono:ui-monospace,Consolas,monospace}
 @media(prefers-color-scheme:light){:root{--bg:#faf8f4;--surface:#fff;--line:rgba(26,26,26,.10);
   --ink:#1a1a1a;--ink2:#55524a;--ink3:#8a867d;--torool:#D4276E;--julia:#A5760A;--bad:#BF4433}}
+:root[data-theme="dark"]{--bg:#15161B;--surface:#1c1d24;--line:rgba(250,248,244,.10);--ink:#faf8f4;
+  --ink2:#c9c5bc;--ink3:#8a867d;--torool:#E8519A;--julia:#D4A574;--bad:#E2685A}
+:root[data-theme="light"]{--bg:#faf8f4;--surface:#fff;--line:rgba(26,26,26,.10);--ink:#1a1a1a;
+  --ink2:#55524a;--ink3:#8a867d;--torool:#D4276E;--julia:#A5760A;--bad:#BF4433}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);margin:0;padding:28px 16px 80px;
   font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .wrap{max-width:1080px;margin:0 auto}
-h1{font-size:24px;font-weight:800;margin:0 0 4px;letter-spacing:-.02em}
-.sub{color:var(--ink2);font-size:14px;margin:0 0 18px;max-width:70ch}
-h2{font-size:17px;font-weight:800;margin:30px 0 4px;border-bottom:1px solid var(--line);padding-bottom:8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:14px}
+h1{font-size:24px;font-weight:800;margin:0 0 6px;letter-spacing:-.02em;text-wrap:balance}
+.sub{color:var(--ink2);font-size:14px;margin:0 0 22px;max-width:68ch}
+h2{font-size:15px;font-weight:800;margin:26px 0 2px;text-transform:uppercase;letter-spacing:.06em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:12px}
 .card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
-  border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:7px}
-.t{font-weight:700;font-size:14px;line-height:1.3}
+  border-radius:10px;padding:11px 13px;display:flex;flex-direction:column;gap:7px}
+.t{font-weight:700;font-size:13.5px;line-height:1.3}
 .d{font-size:12.5px;color:var(--ink2)}
 video{width:100%;border-radius:8px;background:#000;display:block}
 .torool{--accent:var(--torool)} .julia{--accent:var(--julia)}
-.bad{border:1px solid var(--bad);border-radius:10px;padding:14px 16px;margin-top:22px;
-  background:color-mix(in srgb,var(--bad) 10%,transparent);font-size:13.5px;color:var(--ink2)}
+.bad{border:1px solid var(--bad);border-radius:10px;padding:13px 16px;margin-top:20px;
+  background:color-mix(in srgb,var(--bad) 9%,transparent);font-size:13.5px;color:var(--ink2)}
 .bad b{color:var(--ink)}
-.bad li{margin:5px 0}
+.bad ul{margin:8px 0 0;padding-left:19px} .bad li{margin:5px 0}
 .stat{display:inline-block;font-family:var(--mono);font-size:12px;background:var(--surface);
-  border:1px solid var(--line);border-radius:100px;padding:4px 12px;color:var(--ink2);margin-right:7px}
-footer{margin-top:50px;padding-top:14px;border-top:1px solid var(--line);color:var(--ink3);
-  font-size:12px;font-family:var(--mono)}
-a{color:var(--ink2)}
+  border:1px solid var(--line);border-radius:100px;padding:4px 12px;color:var(--ink2);
+  margin:0 7px 7px 0}
+.wave{border-top:1px solid var(--line);padding-top:24px;margin-top:38px}
+footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
+footer b{color:var(--ink2)}
 </style>
 <div class="wrap">
 <h1>B-roll brut — revue par vague</h1>
-<p class="sub">Les clips bruts, avant montage et avant jugement. À checker pour ce que seul l'œil attrape : alcool, rotation, casting, décor, mains bizarres. Lecture directe dans la page.</p>
-<p><span class="stat">vague A</span><span class="stat">21 juillet</span><span class="stat">9,66 $</span><span class="stat">20 retenus</span><span class="stat">4 écartés</span></p>
-<h2>Torool</h2>
-<div class="grid">
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-last-one-out.mp4" controls preload="metadata" playsinline></video><span class="t">La dernière chaise, salle vide</span><span class="d">Un homme seul range après l&#x27;événement. Lumière baissée.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-kids-party-setup.mp4" controls preload="metadata" playsinline></video><span class="t">Ballons avant l&#x27;anniversaire</span><span class="d">Elle accroche les ballons. Aucun invité encore.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-family-reunion-garden.mp4" controls preload="metadata" playsinline></video><span class="t">Réunion de famille au jardin</span><span class="d">Trois générations, enfants qui courent.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-market-stall-dawn.mp4" controls preload="metadata" playsinline></video><span class="t">Stand de marché à l&#x27;aube</span><span class="d">Elle déplie l&#x27;auvent seule, brume, village français.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-choir-rehearsal.mp4" controls preload="metadata" playsinline></video><span class="t">Répétition de chorale</span><span class="d">Douze personnes, cheffe de chœur de dos.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-team-offsite-walk.mp4" controls preload="metadata" playsinline></video><span class="t">Séminaire, marche en campagne</span><span class="d">Huit collègues qui marchent et discutent.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-community-garden.mp4" controls preload="metadata" playsinline></video><span class="t">Jardin partagé</span><span class="d">Voisins de tous âges, outils, plantations.</span></div>
-  <div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-thankyou-doorway.mp4" controls preload="metadata" playsinline></video><span class="t">Les au revoir sur le pas de la porte</span><span class="d">Elle serre des mains, embrasse, les invités partent.</span></div>
+<p class="sub">Les clips bruts, avant montage et avant jugement du texte. À regarder pour ce que seul l'œil attrape : de l'alcool apparu tout seul, une image livrée pivotée, un visage qui se déforme, un décor qui sonne américain. Lecture directe dans la page.</p>
+<div class="wave"><span class="stat">vague A</span><span class="stat">21 juillet</span><span class="stat">9,66 $</span><span class="stat">20 retenus</span><span class="stat">4 écartés</span>
+<h2>Torool</h2><div class='grid'>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-last-one-out.mp4" controls preload="none" playsinline></video><span class="t">La dernière chaise, salle vide</span><span class="d">Un homme seul range après l&#x27;événement.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-kids-party-setup.mp4" controls preload="none" playsinline></video><span class="t">Ballons avant l&#x27;anniversaire</span><span class="d">Elle les accroche. Aucun invité encore.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-family-reunion-garden.mp4" controls preload="none" playsinline></video><span class="t">Réunion de famille au jardin</span><span class="d">Trois générations, enfants qui courent.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-market-stall-dawn.mp4" controls preload="none" playsinline></video><span class="t">Stand de marché à l&#x27;aube</span><span class="d">Elle déplie l&#x27;auvent seule, brume, village français.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-choir-rehearsal.mp4" controls preload="none" playsinline></video><span class="t">Répétition de chorale</span><span class="d">Douze personnes, cheffe de chœur de dos.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-team-offsite-walk.mp4" controls preload="none" playsinline></video><span class="t">Séminaire, marche en campagne</span><span class="d">Huit collègues qui marchent et discutent.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-community-garden.mp4" controls preload="none" playsinline></video><span class="t">Jardin partagé</span><span class="d">Voisins de tous âges, outils, plantations.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/t2-thankyou-doorway.mp4" controls preload="none" playsinline></video><span class="t">Les au revoir sur le pas de la porte</span><span class="d">Elle embrasse, les invités partent.</span></div>
 </div>
-<h2>juliapp</h2>
-<div class="grid">
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-bus-stop-night.mp4" controls preload="metadata" playsinline></video><span class="t">Abribus la nuit</span><span class="d">Seule sous la lumière, elle regarde la route.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-bike-home-night.mp4" controls preload="metadata" playsinline></video><span class="t">Vélo, rentrer la nuit</span><span class="d">Casque, rue européenne, lampadaires.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-building-hall.mp4" controls preload="metadata" playsinline></video><span class="t">Hall d&#x27;immeuble</span><span class="d">Entrée parisienne carrelée, elle rejoint l&#x27;escalier.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-leaving-work-late.mp4" controls preload="metadata" playsinline></video><span class="t">Sortie de bureau tard</span><span class="d">Portes vitrées, lobby vide derrière elle.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-gym-exit-night.mp4" controls preload="metadata" playsinline></video><span class="t">Sortie de salle de sport</span><span class="d">Sac de sport à l&#x27;épaule, elle rejoint la rue.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-parking-night.mp4" controls preload="metadata" playsinline></video><span class="t">Parking souterrain</span><span class="d">Elle traverse vers sa voiture, clés en main.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-train-platform.mp4" controls preload="metadata" playsinline></video><span class="t">Quai de gare au crépuscule</span><span class="d">Petite valise, elle regarde les voies.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-student-residence.mp4" controls preload="metadata" playsinline></video><span class="t">Résidence étudiante</span><span class="d">Cour la nuit, fenêtres allumées au-dessus.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-running-dusk.mp4" controls preload="metadata" playsinline></video><span class="t">Courir au crépuscule</span><span class="d">Seule sur un chemin de parc.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-waiting-cafe-window.mp4" controls preload="metadata" playsinline></video><span class="t">Attendre à la fenêtre du café</span><span class="d">Elle regarde la rue, un café devant elle.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-mother-daughter-street.mp4" controls preload="metadata" playsinline></video><span class="t">Mère et fille</span><span class="d">Elles marchent en parlant, fin d&#x27;après-midi.</span></div>
-  <div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-friends-goodbye-corner.mp4" controls preload="metadata" playsinline></video><span class="t">S&#x27;embrasser au coin de la rue</span><span class="d">Deux amies, la nuit, chacune sa direction.</span></div>
+<h2>juliapp</h2><div class='grid'>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-bus-stop-night.mp4" controls preload="none" playsinline></video><span class="t">Abribus la nuit</span><span class="d">Seule sous la lumière, elle regarde la route.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-bike-home-night.mp4" controls preload="none" playsinline></video><span class="t">Vélo, rentrer la nuit</span><span class="d">Casque, rue européenne, lampadaires.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-building-hall.mp4" controls preload="none" playsinline></video><span class="t">Hall d&#x27;immeuble</span><span class="d">Entrée parisienne carrelée, elle rejoint l&#x27;escalier.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-leaving-work-late.mp4" controls preload="none" playsinline></video><span class="t">Sortie de bureau tard</span><span class="d">Portes vitrées, lobby vide derrière elle.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-gym-exit-night.mp4" controls preload="none" playsinline></video><span class="t">Sortie de salle de sport</span><span class="d">Sac à l&#x27;épaule, elle rejoint la rue.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-parking-night.mp4" controls preload="none" playsinline></video><span class="t">Parking souterrain</span><span class="d">Elle traverse vers sa voiture, clés en main.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-train-platform.mp4" controls preload="none" playsinline></video><span class="t">Quai de gare au crépuscule</span><span class="d">Petite valise, elle regarde les voies.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-student-residence.mp4" controls preload="none" playsinline></video><span class="t">Résidence étudiante</span><span class="d">Cour la nuit, fenêtres allumées au-dessus.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-running-dusk.mp4" controls preload="none" playsinline></video><span class="t">Courir au crépuscule</span><span class="d">Seule sur un chemin de parc.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-waiting-cafe-window.mp4" controls preload="none" playsinline></video><span class="t">Attendre à la fenêtre du café</span><span class="d">Elle regarde la rue.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-mother-daughter-street.mp4" controls preload="none" playsinline></video><span class="t">Mère et fille</span><span class="d">Elles marchent en parlant, fin d&#x27;après-midi.</span></div>
+<div class="card julia"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-A/j2-friends-goodbye-corner.mp4" controls preload="none" playsinline></video><span class="t">S&#x27;embrasser au coin de la rue</span><span class="d">Deux amies, la nuit, chacune sa direction.</span></div>
 </div>
-<div class="bad"><b>Écartés de cette vague, et pourquoi</b><ul>
-<li><b>t2-volunteers-briefing</b> — sorti tourné à 90° : groupe debout dans une pièce — le bug de rotation Kling documenté</li>
-<li><b>t2-sports-club-hall</b> — sorti tourné à 90° : groupe assis sur des bancs — même bug</li>
-<li><b>t2-arrival-rush</b> — verres de vin : invités qui arrivent, le modèle ignore « no alcohol » sur ce type de scène</li>
-<li><b>t2-school-hall-setup</b> — jamais généré : pas de fichier livré, non facturé</li>
-</ul></div>
-<footer>Deux patrons de panne confirmés sur cette vague : un groupe de personnes dans une pièce sort régulièrement tourné à 90°, et une scène d'invités qui arrivent génère des verres de vin même quand le prompt l'interdit. Les scènes solo, elles, sortent propres à chaque fois.</footer>
+<div class="bad"><b>Écartés, et pourquoi</b><ul>
+<li><b>t2-volunteers-briefing</b> — livré tourné à 90° : un groupe debout dans une pièce</li>
+<li><b>t2-sports-club-hall</b> — livré tourné à 90° : un groupe assis sur des bancs</li>
+<li><b>t2-arrival-rush</b> — verres de vin : des invités qui arrivent — scène de réception</li>
+<li><b>t2-school-hall-setup</b> — jamais généré : aucun fichier livré, non facturé</li>
+</ul></div></div>
+<div class="wave"><span class="stat">vague B2</span><span class="stat">21 juillet</span><span class="stat">11,34 $</span><span class="stat">16 retenus</span><span class="stat">8 écartés</span>
+<h2>Torool</h2><div class='grid'>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t3-carpool-loading.mp4" controls preload="none" playsinline></video><span class="t">Charger le coffre au départ</span><span class="d">Quatre amis, glacière et sacs, village français.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t3-carpool-road.mp4" controls preload="none" playsinline></video><span class="t">Sur la route, à quatre</span><span class="d">Route de campagne, tout le monde rit.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-carpool-backseat.mp4" controls preload="none" playsinline></video><span class="t">La place côté fenêtre</span><span class="d">Vent dans les cheveux. Le meilleur plan du lot.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-carpool-arrival.mp4" controls preload="none" playsinline></video><span class="t">Sortir de voiture après la route</span><span class="d">Il s&#x27;étire, soulagé, lumière rasante.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-seating-deciding.mp4" controls preload="none" playsinline></video><span class="t">Le plan de table, dans la salle vide</span><span class="d">Elle tient des cartons vierges et hésite.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-runofshow-headset.mp4" controls preload="none" playsinline></video><span class="t">Le déroulé, en coulisses</span><span class="d">Casque sur les oreilles, elle surveille le timing.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-lodging-unlocking.mp4" controls preload="none" playsinline></video><span class="t">Ouvrir le gîte</span><span class="d">Elle déverrouille, les autres attendent derrière.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-gifts-handing.mp4" controls preload="none" playsinline></video><span class="t">Tendre le cadeau</span><span class="d">Elle le remet en main propre, tous deux sourient.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-photos-glow.mp4" controls preload="none" playsinline></video><span class="t">Regarder les photos, le soir</span><span class="d">Visages éclairés par l&#x27;écran, téléphone hors champ.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-baptism-holding.mp4" controls preload="none" playsinline></video><span class="t">Un baptême</span><span class="d">Elle porte l&#x27;enfant, vitrail, famille en flou derrière.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-church-steps.mp4" controls preload="none" playsinline></video><span class="t">Sur le parvis après l&#x27;office</span><span class="d">Deux femmes de soixante-dix ans qui rient.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-workshop-clay.mp4" controls preload="none" playsinline></video><span class="t">Atelier poterie</span><span class="d">Concentrée sur son tour, mains dans la terre.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-club-catching-breath.mp4" controls preload="none" playsinline></video><span class="t">Reprendre son souffle</span><span class="d">Entraînement de foot amateur au crépuscule.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-tournament-parent.mp4" controls preload="none" playsinline></video><span class="t">Un père au bord du terrain</span><span class="d">Manteau, jour froid, il encourage.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-school-fair-game.mp4" controls preload="none" playsinline></video><span class="t">Kermesse, le stand de jeux</span><span class="d">Mère et fille qui rient devant un stand.</span></div>
+<div class="card torool"><video src="https://github.com/Mbaldek/ce-media-smoke/releases/download/broll-B/t4-graduation-hug.mp4" controls preload="none" playsinline></video><span class="t">Remise de diplôme</span><span class="d">Elle serre sa mère dans ses bras.</span></div>
 </div>
+<div class="bad"><b>Écartés, et pourquoi</b><ul>
+<li><b>t3-seating-big-hall</b> — quinze tables dressées de verres : le prompt disait pourtant « completely empty of any glassware »</li>
+<li><b>t3-seating-moving-cards</b> — un verre de vin rouge et une bouteille : gros plan sur des cartons posés sur une table</li>
+<li><b>t3-carpool-meetpoint</b> — livré tourné à 90° : une file de voitures le long d&#x27;une route</li>
+<li><b>t4-expenses-handoff</b> — bouteilles de vin sur le plan de travail : une cuisine a un comptoir, et un comptoir se fait habiller</li>
+<li><b>t4-seminar-listening</b> — une bouteille de bière derrière l&#x27;épaule : vue en zoomant sur la frame, pas au jugé</li>
+<li><b>t4-potluck-dish</b> — le visage se déforme sur toute la seconde moitié : une réaction face caméra fait morpher le visage</li>
+<li><b>t4-lodging-blanket</b> — intérieur en rondins, esthétique nord-américaine : la porte « décors non-US » vaut aussi quand la scène est belle</li>
+<li><b>t4-race-startline</b> — dossards couverts de charabia (« FCTNAE ») : une course implique des dossards, un dossard implique du texte</li>
+</ul></div></div>
+<footer><b>Ce que ces deux vagues ont appris.</b> Un interdit écrit dans le prompt ne
+tient pas : « no alcohol, no wine glasses » a été ignoré trois fois, et « no visible written text »
+une quatrième. Ce qui décide, c'est la scène qu'on décrit. Une table ou un comptoir se fait habiller
+de bouteilles ; une course à pied implique des dossards, donc du texte inventé ; un sujet étalé
+latéralement revient pivoté à 90°. La vague B2 a été réécrite sur ce constat — plan serré sur une ou
+deux personnes, aucun meuble de service dans le cadre — et le taux de clips gardables est passé de
+40&nbsp;% à 74&nbsp;%.</footer></div>
