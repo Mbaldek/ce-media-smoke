@@ -1,0 +1,98 @@
+<title>Formats — cadrage et scripts</title>
+<style>
+:root{--bg:#14151a;--card:#1c1d24;--line:rgba(250,248,244,.11);--ink:#faf8f4;--ink2:#c8c4bb;
+ --ink3:#89857d;--tor:#E8519A;--jul:#D4A574;--ok:#4FB477;--warn:#E0983A;--mono:ui-monospace,Consolas,monospace}
+@media(prefers-color-scheme:light){:root{--bg:#f7f5f1;--card:#fff;--line:rgba(26,26,26,.11);
+ --ink:#191919;--ink2:#54514a;--ink3:#8a867d;--tor:#D4276E;--jul:#A5760A;--ok:#2E7D51;--warn:#B5720C}}
+:root[data-theme="dark"]{--bg:#14151a;--card:#1c1d24;--line:rgba(250,248,244,.11);--ink:#faf8f4;--ink2:#c8c4bb;--ink3:#89857d}
+:root[data-theme="light"]{--bg:#f7f5f1;--card:#fff;--line:rgba(26,26,26,.11);--ink:#191919;--ink2:#54514a;--ink3:#8a867d}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);margin:0;padding:28px 16px 90px;
+ font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:27px;font-weight:800;margin:0 0 8px;letter-spacing:-.02em;text-wrap:balance}
+.sub{color:var(--ink2);font-size:14.5px;margin:0 0 6px;max-width:72ch}
+h2{font-size:14px;font-weight:800;margin:44px 0 4px;text-transform:uppercase;letter-spacing:.08em}
+.f{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+ border-radius:12px;padding:16px 20px;margin-top:14px}
+.f h3{margin:0;font-size:19px;font-weight:800;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.f h3 small{font-weight:400;font-size:14px;color:var(--ink3)}
+.f p{margin:9px 0 0;font-size:14.5px;color:var(--ink2)}
+.f .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tag{font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);border-radius:100px;
+ padding:4px 12px;color:var(--ink2)}
+.tag.ok{color:var(--ok);border-color:var(--ok)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.libre{--accent:var(--ok)} .bloque{--accent:var(--warn)}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);
+ padding:8px 10px;border-bottom:1px solid var(--line);font-weight:700}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+td b{color:var(--ink);font-weight:700}
+.torool td:first-child,.juliapp td:first-child{white-space:nowrap;font-family:var(--mono);font-size:11.5px}
+.budget{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-top:18px}
+.budget b{color:var(--ink)}
+.n{font-family:var(--mono);font-variant-numeric:tabular-nums}
+footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px;max-width:76ch}
+</style>
+<div class="wrap">
+<h1>Les formats, adaptés aux deux produits</h1>
+<p class="sub">Huit archétypes, ce que chacun demande, et les scripts déjà déclinés. Les cinq premiers ne demandent rien de toi ; les trois derniers exigent de filmer.</p>
+<p class="sub"><b>Ce que la recherche a tranché :</b> aucun chiffre par format n'est vérifiable — 21 affirmations réfutées sur 27, tous les taux de rétention qui circulent sont non sourcés ou du marketing d'éditeur. Ce qui tient : la vidéo bat le carrousel (3,39 % contre 1,92 % d'engagement), donc pas de pivot photo. Et la pastille IA ne s'est pas matérialisée sur nos clips. Le choix se fera donc en testant, pas en copiant.</p>
+<h2>Les huit formats</h2>
+<div class="f libre"><h3>Screen-record <small>l&#x27;app en action</small></h3><p>On filme l&#x27;écran pendant qu&#x27;on utilise l&#x27;app. Les réponses qui tombent, le trajet qui se partage, le plan de table qui se remplit.</p><p><b>Pourquoi ça marche.</b> C&#x27;est le format par défaut de tout compte d&#x27;application, et le seul que nous n&#x27;avions jamais essayé. Il montre le produit au lieu de le suggérer par une métaphore.</p><p><b>Le risque.</b> Un écran statique filmé sans geste se lit comme une maquette. Il faut un tap, un compteur qui bouge, un état qui change.</p><div class="meta"><span class="tag ok">PREMIER MONTÉ, testé aujourd&#x27;hui</span><span class="tag">de toi : Rien, ou 30 s de capture d&#x27;écran sur ton téléphone si tu veux du vrai enregistrement.</span><span class="tag">0 $</span></div></div>
+<div class="f libre"><h3>POV <small>la caméra est à ta place</small></h3><p>« POV : ton pote qui répond jamais au groupe. » Le spectateur est mis en situation dès la première seconde.</p><p><b>Pourquoi ça marche.</b> Le hook est dans le titre : le spectateur sait en une seconde si ça le concerne. C&#x27;est la structure la plus économe en attention.</p><p><b>Le risque.</b> Devient un tic si tous les posts commencent par « POV ». À plafonner à une pièce sur quatre.</p><div class="meta"><span class="tag ok">à écrire</span><span class="tag">de toi : Rien.</span><span class="tag">0,42 $/clip si nouveau b-roll, 0 $ sur le stock</span></div></div>
+<div class="f libre"><h3>Listicle <small>3 choses en 15 secondes</small></h3><p>« 3 trucs que je fais avant de rentrer le soir. » Chaque item est une raison de rester jusqu&#x27;au suivant.</p><p><b>Pourquoi ça marche.</b> La structure numérotée crée une promesse de complétion — on reste pour le 3.</p><p><b>Le risque.</b> Le socle interdit le numéroté décoratif : la liste doit être une vraie séquence, pas trois idées empilées.</p><div class="meta"><span class="tag ok">à écrire</span><span class="tag">de toi : Rien.</span><span class="tag">0 $ sur le stock existant</span></div></div>
+<div class="f libre"><h3>Avant / après <small>le chaos, puis le résultat</small></h3><p>Split ou coupe sèche. Le groupe qui part en vrille, puis la liste propre. La rue vide, puis le message reçu.</p><p><b>Pourquoi ça marche.</b> C&#x27;est la démonstration la plus courte d&#x27;un produit : le problème et sa résolution dans le même plan.</p><p><b>Le risque.</b> Côté Torool, l&#x27;« après » ne doit jamais promettre une présence physique — le produit garantit des réponses, pas des gens dans la salle.</p><div class="meta"><span class="tag ok">à écrire</span><span class="tag">de toi : Rien.</span><span class="tag">0 $ (2 clips du stock par pièce)</span></div></div>
+<div class="f libre"><h3>Storytime <small>une histoire vraie, une chute</small></h3><p>20 à 40 s. « J&#x27;ai organisé un mariage en trois semaines, voilà ce qui a cassé. »</p><p><b>Pourquoi ça marche.</b> Le format qui produit le plus de commentaires : les gens racontent la leur en retour.</p><p><b>Le risque.</b> Sans voix, il repose entièrement sur le rythme du texte — c&#x27;est le format le plus exigeant à écrire.</p><div class="meta"><span class="tag ok">à écrire</span><span class="tag">de toi : Ta voix, ou du texte rythmé si tu ne veux pas t&#x27;enregistrer.</span><span class="tag">0 $ en texte, sinon ta voix</span></div></div>
+<div class="f bloque"><h3>Talking head <small>quelqu&#x27;un parle face caméra</small></h3><p>Toi, ou quelqu&#x27;un, qui parle. 15 à 30 s, un seul plan.</p><p><b>Pourquoi ça marche.</b> Réputé le plus fort en rétention — mais aucun chiffre public ne le démontre, la recherche a réfuté tous ceux qui circulent.</p><p><b>Le risque.</b> Sur juliapp, un visage masculin est hors sujet. Il faudrait une créatrice, donc un budget de collaboration.</p><div class="meta"><span class="tag warn">bloqué tant que tu ne filmes pas</span><span class="tag">de toi : Il faut filmer. C&#x27;est le seul de la liste qui l&#x27;exige.</span><span class="tag">0 $ mais ton temps</span></div></div>
+<div class="f bloque"><h3>Green screen <small>tu commentes une capture</small></h3><p>Une capture d&#x27;écran derrière toi, tu la commentes.</p><p><b>Pourquoi ça marche.</b> Le meilleur véhicule pour réagir à une actualité ou à un commentaire reçu.</p><p><b>Le risque.</b> Même contrainte de visage que le talking head.</p><div class="meta"><span class="tag warn">bloqué</span><span class="tag">de toi : Il faut filmer.</span><span class="tag">0 $ mais ton temps</span></div></div>
+<div class="f libre"><h3>Stitch / Duo <small>tu réagis à une autre vidéo</small></h3><p>Tu accroches ta réponse à une vidéo existante.</p><p><b>Pourquoi ça marche.</b> Le seul format qui emprunte l&#x27;audience d&#x27;un autre — la portée ne dépend pas de ton compte.</p><p><b>Le risque.</b> Dépend de trouver une vidéo pertinente et récente. Non planifiable à l&#x27;avance.</p><div class="meta"><span class="tag ok">à essayer</span><span class="tag">de toi : Trouver la vidéo, 5 min.</span><span class="tag">0 $</span></div></div>
+<h2>juliapp — 12 scripts</h2><table class="juliapp"><tr><th>format</th><th>script</th><th>comment</th></tr>
+<tr><td>Screen-record</td><td><b>Walk With Me lancé en une seconde</b></td><td>On voit le trajet partir, le cercle recevoir. Texte : « Deux secondes. Elle sait où je suis. »</td></tr>
+<tr><td>Screen-record</td><td><b>Ajouter une Lifeline</b></td><td>L&#x27;écran Mes Lifelines, on ajoute un contact. « La liste des gens qui savent. »</td></tr>
+<tr><td>Screen-record</td><td><b>Le bouton SOS, expliqué sans le presser</b></td><td>Gros plan sur le bouton, on ne l&#x27;active pas. « Je l&#x27;ai jamais utilisé. Je sais où il est. »</td></tr>
+<tr><td>POV</td><td><b>POV : tu rentres et ta coloc a laissé la lumière</b></td><td>Sur un clip de hall d&#x27;immeuble.</td></tr>
+<tr><td>POV</td><td><b>POV : elle t&#x27;écrit « bien rentrée ? » à 1 h</b></td><td>Sur un clip de chambre la nuit.</td></tr>
+<tr><td>Listicle</td><td><b>3 trucs que je fais sans y penser</b></td><td>Un écouteur, les clés en main, le trottoir d&#x27;en face.</td></tr>
+<tr><td>Listicle</td><td><b>3 choses qu&#x27;on se dit entre nous</b></td><td>« Envoie quand tu montes », « je t&#x27;attends », « t&#x27;es où ? »</td></tr>
+<tr><td>Avant/après</td><td><b>Seule le soir → à six</b></td><td>Clip parking brumeux, puis clip du groupe de coureuses.</td></tr>
+<tr><td>Avant/après</td><td><b>Le détour → arrivées ensemble</b></td><td>Deux clips du stock.</td></tr>
+<tr><td>Storytime</td><td><b>La fois où ma voisine a ouvert avant que je frappe</b></td><td>Sur la cage d&#x27;escalier.</td></tr>
+<tr><td>Storytime</td><td><b>Ce que ma mère m&#x27;a appris sans le dire</b></td><td>Sur mère-fille — attention, figure déjà plafonnée à 2 pièces.</td></tr>
+<tr><td>Stitch</td><td><b>Réagir à une vidéo sur le harcèlement de rue</b></td><td>À chercher au moment de poster.</td></tr>
+</table>
+<h2>Torool — 12 scripts</h2><table class="torool"><tr><th>format</th><th>script</th><th>comment</th></tr>
+<tr><td>Screen-record</td><td><b>Les réponses qui tombent 4 → 6</b></td><td>MONTÉ AUJOURD&#x27;HUI. Le compteur monte, deux invités passent à GOING.</td></tr>
+<tr><td>Screen-record</td><td><b>Créer un événement en 20 secondes</b></td><td>De l&#x27;écran vide au lien partagé.</td></tr>
+<tr><td>Screen-record</td><td><b>Le plan de table qui se remplit</b></td><td>Module Premium — l&#x27;annoncer comme tel.</td></tr>
+<tr><td>Screen-record</td><td><b>Le covoiturage qui s&#x27;organise seul</b></td><td>Premium également.</td></tr>
+<tr><td>POV</td><td><b>POV : you are the one who books everything</b></td><td>Sur le clip de la salle vide.</td></tr>
+<tr><td>POV</td><td><b>POV : the group chat has 47 unread and no date</b></td><td>Sur un clip de téléphone ou d&#x27;écran.</td></tr>
+<tr><td>Listicle</td><td><b>3 people every group has</b></td><td>Celui qui répond jamais, celui qui arrive en avance, celui qui range.</td></tr>
+<tr><td>Listicle</td><td><b>3 things nobody thanks you for</b></td><td>Le plan de table, les courses, la vaisselle de minuit.</td></tr>
+<tr><td>Avant/après</td><td><b>47 messages → un lien</b></td><td>Écran de conversation, puis écran Torool.</td></tr>
+<tr><td>Avant/après</td><td><b>Salle vide → salle pleine</b></td><td>Deux clips du stock, sans jamais promettre la présence.</td></tr>
+<tr><td>Storytime</td><td><b>The seating plan that took longer than the vows</b></td><td>Sur la grille de cartons au sol.</td></tr>
+<tr><td>Stitch</td><td><b>Réagir à une vidéo de galère d&#x27;organisation</b></td><td>À chercher au moment de poster.</td></tr>
+</table>
+<h2>Le budget</h2>
+<div class="budget">
+<p><b>Ce qui ne coûte rien.</b> Les cinq formats libres se produisent sur le stock existant :
+69 clips vérifiés, plus les captures réelles des deux apps. <b>24 scripts, 0 $.</b>
+C'est le lot que je peux lancer sur ton go, sans dépense.</p>
+<p><b>Ce qui coûterait du fal.ai.</b> Uniquement si un script demande une scène que le stock
+n'a pas. À 0,42 $ le clip et un rendement mesuré d'environ deux clips gardables sur trois,
+compte <b>0,63 $ par clip réellement utilisable</b>. Vingt scènes neuves = <b>~13 $</b>.</p>
+<p><b>Ce qui demande ton temps, pas de l'argent.</b> Trois formats sont bloqués sur le tournage :
+talking head, green screen, storytime en voix. Sur juliapp, un visage masculin est hors sujet —
+il faudrait une créatrice, donc un vrai budget de collaboration, à chiffrer séparément.</p>
+<p><b>Ma recommandation.</b> Lancer les 24 scripts gratuits d'abord, en alternant les formats
+sur tes posts quotidiens. Au bout de deux semaines tu sauras lequel tient chez toi — ce
+qu'aucune recherche ne peut te dire. Ensuite seulement, mettre du budget sur le format
+gagnant.</p>
+</div>
+<footer>Le format actuel — un plan de banque d'images plus deux phrases — n'appartient
+à aucune de ces huit familles. C'est probablement pour ça qu'il ne décolle pas : il n'a ni la
+démonstration du screen-record, ni la mise en situation du POV, ni la promesse de complétion du
+listicle. Ce n'est pas un mauvais format, c'est un non-format.</footer></div>
