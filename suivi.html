@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Content Engine — Suivi production</title>
+<style>
+  :root{
+    --bg:#f7f5f1; --panel:#ffffff; --panel2:#f1eee8; --line:#e2ddd3;
+    --ink:#1c1a17; --ink2:#5c574e; --ink3:#8f897d;
+    --tor:#d4276e; --jul:#b07d38; --ui:#3f6f6b;
+    --ok:#2f8f5b; --warn:#c98a1e; --kill:#b44a3e; --wait:#6b7280;
+    --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+    --radius:14px;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#121115; --panel:#1a191f; --panel2:#211f27; --line:#2c2a33;
+      --ink:#f3f0ea; --ink2:#b6b1a8; --ink3:#7d786f;
+      --tor:#ef6aa6; --jul:#d8ab6a; --ui:#6fb0a9;
+      --ok:#4fb477; --warn:#e0a83f; --kill:#e07a6b; --wait:#8a90a0;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f7f5f1; --panel:#ffffff; --panel2:#f1eee8; --line:#e2ddd3;
+    --ink:#1c1a17; --ink2:#5c574e; --ink3:#8f897d;
+    --tor:#d4276e; --jul:#b07d38; --ui:#3f6f6b;
+    --ok:#2f8f5b; --warn:#c98a1e; --kill:#b44a3e; --wait:#6b7280;
+    --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#121115; --panel:#1a191f; --panel2:#211f27; --line:#2c2a33;
+    --ink:#f3f0ea; --ink2:#b6b1a8; --ink3:#7d786f;
+    --tor:#ef6aa6; --jul:#d8ab6a; --ui:#6fb0a9;
+    --ok:#4fb477; --warn:#e0a83f; --kill:#e07a6b; --wait:#8a90a0;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 72px}
+  a{color:inherit}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);
+    font-weight:700}
+  h1{font-size:clamp(28px,4.5vw,40px);line-height:1.06;margin:6px 0 0;letter-spacing:-.02em;
+    text-wrap:balance;font-weight:800}
+  h2{font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2);
+    margin:38px 0 14px;font-weight:700}
+  .sub{color:var(--ink2);margin-top:10px;max-width:60ch}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  /* header meter */
+  .head{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;justify-content:space-between}
+  .budget{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 18px;box-shadow:var(--shadow);min-width:240px}
+  .budget .row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2)}
+  .budget b{color:var(--ink);font-family:var(--mono)}
+  .bar{height:8px;border-radius:5px;background:var(--panel2);margin-top:10px;overflow:hidden}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--ui),var(--jul));border-radius:5px}
+
+  /* KPI */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--shadow)}
+  .kpi .n{font-family:var(--mono);font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1}
+  .kpi .l{font-size:12.5px;color:var(--ink2);margin-top:8px}
+  .kpi .l b{color:var(--ink)}
+
+  /* pills */
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+    padding:3px 9px;border-radius:999px;letter-spacing:.02em;white-space:nowrap}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%}
+  .p-ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+  .p-ok::before{background:var(--ok)}
+  .p-warn{color:var(--warn);background:color-mix(in srgb,var(--warn) 16%,transparent)}
+  .p-warn::before{background:var(--warn)}
+  .p-kill{color:var(--kill);background:color-mix(in srgb,var(--kill) 15%,transparent)}
+  .p-kill::before{background:var(--kill)}
+  .p-wait{color:var(--wait);background:color-mix(in srgb,var(--wait) 16%,transparent)}
+  .p-wait::before{background:var(--wait)}
+
+  /* format matrix */
+  .scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:640px;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
+  th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);font-weight:700;background:var(--panel2)}
+  tbody tr:last-child td{border-bottom:none}
+  td.fmt{font-weight:700}
+  td .why{color:var(--ink2);font-size:12.5px;margin-top:3px}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink2)}
+  .idx{color:var(--ink3);font-family:var(--mono);font-size:12px}
+
+  /* brand columns */
+  .brands{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:680px){.brands{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+  .brand{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .brand::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+  .brand.tor::before{background:var(--tor)}
+  .brand.jul::before{background:var(--jul)}
+  .brand h3{margin:0 0 2px;font-size:19px;letter-spacing:-.01em}
+  .brand.tor h3{color:var(--tor)} .brand.jul h3{color:var(--jul)}
+  .brand .tag{font-size:12px;color:var(--ink3)}
+  .brand .big{font-family:var(--mono);font-size:30px;font-weight:700;margin:12px 0 2px}
+  .brk{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip{font-size:11.5px;color:var(--ink2);background:var(--panel2);border:1px solid var(--line);
+    border-radius:8px;padding:3px 8px;font-family:var(--mono)}
+
+  /* pipeline */
+  .pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+  .step{display:flex;flex-direction:column;gap:3px}
+  .step .s{font-weight:700;font-size:13.5px}
+  .step .d{font-size:11.5px;color:var(--ink3)}
+  .arr{color:var(--ink3);font-size:18px;padding:0 2px}
+
+  /* next actions */
+  .acts{display:grid;gap:10px}
+  .act{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:15px 18px;box-shadow:var(--shadow)}
+  .act .k{font-family:var(--mono);font-size:13px;color:var(--ui);font-weight:700;padding-top:2px;min-width:26px}
+  .act .t{font-size:14px}
+  .act .t b{font-weight:700}
+  .act .t span{color:var(--ink2)}
+  .foot{margin-top:40px;color:var(--ink3);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <div class="head">
+    <div>
+      <div class="eyebrow">Content Engine · suivi production</div>
+      <h1>Les 8 formats, deux marques</h1>
+      <p class="sub">État de la fabrique vidéo au <b>23 juillet 2026</b>. Un format = une construction
+      reconnaissable à l'œil ; chaque pièce passe par une vérification frame par frame avant d'arriver ici.</p>
+    </div>
+    <div class="budget">
+      <div class="row"><span>Budget fal.ai (compteur local)</span><b>121 $</b></div>
+      <div class="bar"><i style="width:30%"></i></div>
+      <div class="row" style="margin-top:8px"><span>Plafond</span><b>400 $ · le mur reste le wallet fal.ai</b></div>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">41</div><div class="l"><b>pièces produites</b> dans le système 8-formats (séries 2 + 3)</div></div>
+    <div class="kpi"><div class="n">5</div><div class="l"><b>formats validés</b> sur 8 · 1 abandonné · 1 à juger · 1 en fiche</div></div>
+    <div class="kpi"><div class="n">21</div><div class="l"><b>juliapp</b> · validé 100 % en série 2, série 3 en attente</div></div>
+    <div class="kpi"><div class="n">20</div><div class="l"><b>Torool</b> · review en cours, série 3 en attente</div></div>
+  </div>
+
+  <h2>Les 8 formats — statut</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:34%">Format</th><th>Statut</th><th>Produit</th><th>Ce qui le distingue</th></tr></thead>
+    <tbody>
+      <tr><td class="fmt"><span class="idx">1</span> &nbsp;Screen-record</td>
+        <td><span class="pill p-ok">Validé</span></td><td class="num">6</td>
+        <td class="why">Capture réelle de l'app, un tap, un état qui bascule. Zéro pixel généré.</td></tr>
+      <tr><td class="fmt"><span class="idx">2</span> &nbsp;POV</td>
+        <td><span class="pill p-ok">Validé</span></td><td class="num">10</td>
+        <td class="why">Un plan tenu, « POV : … » dès la seconde 1, la ligne qui retourne la scène.</td></tr>
+      <tr><td class="fmt"><span class="idx">3</span> &nbsp;Listicle</td>
+        <td><span class="pill p-ok">Validé · adoré</span></td><td class="num">8</td>
+        <td class="why">Un plan par item, coupe sèche. Chaque clip illustre sa ligne. On reste pour le 3.</td></tr>
+      <tr><td class="fmt"><span class="idx">4</span> &nbsp;Avant / après</td>
+        <td><span class="pill p-kill">Abandonné</span></td><td class="num">0</td>
+        <td class="why">0 sur 4, clip ET idée, sur les deux marques. Le split ne tient pas ses promesses.</td></tr>
+      <tr><td class="fmt"><span class="idx">5</span> &nbsp;Storytime</td>
+        <td><span class="pill p-ok">Validé</span></td><td class="num">8</td>
+        <td class="why">Fond d'ambiance derrière le texte, chute détachée qui pique. Le format à commentaires.</td></tr>
+      <tr><td class="fmt"><span class="idx">6</span> &nbsp;Talking-head <span class="idx">sans voix</span></td>
+        <td><span class="pill p-warn">À juger</span></td><td class="num">4</td>
+        <td class="why">Regard caméra bouche fermée + sous-titres. Test : est-ce que ça tient sans son ?</td></tr>
+      <tr><td class="fmt"><span class="idx">7</span> &nbsp;Green-screen</td>
+        <td><span class="pill p-ok">Validé · structure</span></td><td class="num">4</td>
+        <td class="why">Capture en fond, personne en médaillon qui réagit. Pas de détourage réel.</td></tr>
+      <tr><td class="fmt"><span class="idx">8</span> &nbsp;Stitch / Duo</td>
+        <td><span class="pill p-wait">Fiche</span></td><td class="num">0</td>
+        <td class="why">Non produisible hors app : vidéo tierce + fonction native TikTok. Livré en fiche « quoi chercher / répondre ».</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Par marque</h2>
+  <div class="brands">
+    <div class="brand tor">
+      <h3>Torool</h3>
+      <div class="tag">Event-planning · EN · « l'organisateur crédité »</div>
+      <div class="big">20 pièces</div>
+      <div class="tag">Série 2 (9) en review · Série 3 (11) en attente</div>
+      <div class="brk">
+        <span class="chip">listicle ✓ adoré</span><span class="chip">screen-record 3</span>
+        <span class="chip">pov 5</span><span class="chip">storytime EN</span>
+        <span class="chip">talking-head 2</span><span class="chip">green-screen 2</span>
+      </div>
+    </div>
+    <div class="brand jul">
+      <h3>juliapp</h3>
+      <div class="tag">Sécurité urbaine féminine · FR · sororité + vigilance</div>
+      <div class="big">21 pièces</div>
+      <div class="tag">Série 2 (10) <b style="color:var(--ok)">validé 100 %</b> · Série 3 (11) en attente</div>
+      <div class="brk">
+        <span class="chip">listicle 4</span><span class="chip">screen-record 4</span>
+        <span class="chip">pov 5</span><span class="chip">storytime 4</span>
+        <span class="chip">talking-head 2</span><span class="chip">green-screen 2</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Chaîne de production</h2>
+  <div class="pipe">
+    <div class="step"><span class="s" style="color:var(--ok)">Produit ✓</span><span class="d">41 pièces, vérifiées frame par frame</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="s" style="color:var(--warn)">Review fondateur</span><span class="d">juliapp S2 validé · reste en cours</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="s">Sceau juge</span><span class="d">conformité marque, avant queue</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="s">Hébergement</span><span class="d">GitHub Release</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="s">Buffer DRAFT</span><span class="d">tu programmes toi-même</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="s">TikTok</span><span class="d">à la main + son tendance</span></div>
+  </div>
+
+  <h2>Prochaines actions</h2>
+  <div class="acts">
+    <div class="act"><div class="k">01</div><div class="t"><b>Ta review Torool série 2 + les deux séries 3.</b>
+      <span>22 pièces neuves à valider (11 juliapp, 11 Torool). Dis ce qui passe, format par format.</span></div></div>
+    <div class="act"><div class="k">02</div><div class="t"><b>Sur ton go : sceau juge → Release → drafts Buffer.</b>
+      <span>juliapp série 2 est déjà validé et prêt à partir en drafts (IG). Tu programmes dans Buffer.</span></div></div>
+    <div class="act"><div class="k">03</div><div class="t"><b>Trancher le talking-head « sans voix ».</b>
+      <span>4 pièces produites. Si ça passe sans son, on industrialise ; sinon on l'enterre avec l'avant/après.</span></div></div>
+    <div class="act"><div class="k">04</div><div class="t"><b>DA par marque.</b>
+      <span>Tu l'as noté : même structure interne entre Torool et juliapp. Chantier séparé — divergence visuelle par marque, à planifier hors run.</span></div></div>
+  </div>
+
+  <div class="foot">
+    <span>Généré le 23/07/2026 · content-engine</span>
+    <span class="mono">produit 41 · validé juliapp S2 · budget 121 $ / wallet fal.ai</span>
+  </div>
+</div>
+
+</body>
+</html>
